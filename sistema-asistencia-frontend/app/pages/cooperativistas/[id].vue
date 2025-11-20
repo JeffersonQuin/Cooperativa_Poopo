@@ -327,7 +327,7 @@ useHead({
   min-height: calc(100vh - 200px);
   padding: 2rem;
   margin: -2rem -1.5rem;
-  background: white;
+  background: linear-gradient(to bottom, #0a1a0a 0%, #0f1f0f 50%, #0a1a0a 100%);
 }
 
 .breadcrumb-nav {
@@ -338,30 +338,37 @@ useHead({
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #038730;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(158, 157, 36, 0.3));
+  color: #ffd700;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 215, 0, 0.4);
 }
 
 .breadcrumb-link:hover {
-  color: #026d27;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(158, 157, 36, 0.4));
   transform: translateX(-4px);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
 }
 
 .loading-container {
   text-align: center;
   padding: 4rem 2rem;
+  color: #a5d6a7;
 }
 
 .loader {
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid #038730;
+  border: 4px solid rgba(255, 215, 0, 0.2);
+  border-top: 4px solid #ffd700;
   border-radius: 50%;
   width: 50px;
   height: 50px;
   animation: spin 1s linear infinite;
   margin: 0 auto 1rem;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
 }
 
 @keyframes spin {
@@ -376,24 +383,26 @@ useHead({
 }
 
 .credencial-cooperativista {
-  background: white;
+  background: linear-gradient(135deg, rgba(26, 46, 26, 0.8), rgba(15, 31, 15, 0.8));
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border: 3px solid #e9ecef;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 60px rgba(255, 215, 0, 0.1);
+  border: 3px solid transparent;
+  border-image: linear-gradient(135deg, #2e7d32, #9e9d24, #ffd700) 1;
   position: relative;
 }
 
 .credencial-cooperativista.is-jefe {
-  border: 4px solid #feea01;
-  box-shadow: 0 8px 32px rgba(254, 234, 1, 0.3);
+  border: 4px solid #ffd700;
+  box-shadow: 0 8px 40px rgba(255, 215, 0, 0.4), 0 0 80px rgba(255, 215, 0, 0.2);
 }
 
 .credencial-header {
   position: relative;
   height: 180px;
-  background: linear-gradient(135deg, #038730 0%, #026d27 100%);
+  background: linear-gradient(135deg, #1a2e1a 0%, #0f1f0f 50%, #1e461e 100%);
   overflow: hidden;
+  border-bottom: 2px solid rgba(255, 215, 0, 0.3);
 }
 
 .header-bg {
@@ -403,8 +412,8 @@ useHead({
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 20% 50%, rgba(254, 234, 1, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 50%, rgba(254, 234, 1, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
 }
 
 .logo-section {
@@ -417,27 +426,30 @@ useHead({
 .logo-circle {
   width: 80px;
   height: 80px;
-  background: #feea01;
+  background: linear-gradient(135deg, #ffd700 0%, #ff9800 50%, #9e9d24 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1rem;
   font-size: 2.5rem;
-  color: #038730;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  color: #0d1b0d;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5);
 }
 
 .cooperativa-nombre {
-  color: white;
+  background: linear-gradient(135deg, #ffd700 0%, #ff9800 50%, #9e9d24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 0.25rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
 }
 
 .fundacion {
-  color: #feea01;
+  color: #a5d6a7;
   font-size: 0.95rem;
   font-weight: 600;
   margin: 0;
@@ -453,16 +465,16 @@ useHead({
 .avatar-placeholder {
   width: 120px;
   height: 120px;
-  background: white;
-  border: 5px solid white;
+  background: linear-gradient(135deg, #ffd700 0%, #ff9800 50%, #9e9d24 100%);
+  border: 5px solid #0d1b0d;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   font-size: 4rem;
-  color: #038730;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  color: #0d1b0d;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5);
   position: relative;
   z-index: 2;
 }
@@ -474,43 +486,49 @@ useHead({
   border-radius: 20px;
   font-weight: 700;
   font-size: 0.85rem;
-  background: #e9ecef;
-  color: #666;
+  background: rgba(255, 215, 0, 0.2);
+  color: #ffd700;
+  border: 1px solid rgba(255, 215, 0, 0.4);
 }
 
 .status-indicator.active {
-  background: #feea01;
-  color: #038730;
+  background: linear-gradient(135deg, #ffd700, #ff9800);
+  color: #0d1b0d;
 }
 
 .info-principal {
   text-align: center;
   padding: 1rem 2rem 1.5rem;
-  border-bottom: 3px solid #feea01;
+  border-bottom: 3px solid #ffd700;
 }
 
 .nombre-completo {
-  color: #038730;
+  background: linear-gradient(135deg, #ffd700 0%, #ff9800 50%, #9e9d24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-size: 1.75rem;
-  font-weight: 800;
+  font-weight: 900;
   margin-bottom: 0.75rem;
   line-height: 1.3;
+  text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
 }
 
 .codigo-principal {
-  background: linear-gradient(135deg, #038730 0%, #026d27 100%);
-  color: #feea01;
+  background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%);
+  color: #0d1b0d;
   font-size: 1.25rem;
   font-weight: 800;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   display: inline-block;
   letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
 }
 
 .cargo-especial {
-  background: #feea01;
-  color: #038730;
+  background: linear-gradient(135deg, #ffd700 0%, #ff9800 50%, #9e9d24 100%);
+  color: #0d1b0d;
   padding: 1rem 2rem;
   text-align: center;
   font-weight: 800;
@@ -521,7 +539,7 @@ useHead({
   gap: 0.75rem;
   margin: 0 2rem 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(254, 234, 1, 0.3);
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
 }
 
 .cargo-especial i {
@@ -530,7 +548,7 @@ useHead({
 
 .seccion-datos {
   padding: 1.5rem 2rem;
-  border-bottom: 1px solid #e9ecef;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
 }
 
 .seccion-datos:last-of-type {
@@ -538,9 +556,12 @@ useHead({
 }
 
 .seccion-titulo {
-  color: #038730;
+  background: linear-gradient(135deg, #ffd700 0%, #ff9800 50%, #9e9d24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -549,7 +570,10 @@ useHead({
 
 .seccion-titulo i {
   font-size: 1.5rem;
-  color: #feea01;
+  background: linear-gradient(135deg, #ffd700 0%, #ff9800 50%, #9e9d24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .datos-grid {
@@ -565,7 +589,7 @@ useHead({
 }
 
 .dato-label {
-  color: #666;
+  color: #a5d6a7;
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -573,26 +597,30 @@ useHead({
 }
 
 .dato-valor {
-  color: #333;
+  color: #e0f2f1;
   font-size: 1rem;
   font-weight: 600;
 }
 
 .dato-valor.ocupacion {
-  color: #038730;
+  background: linear-gradient(135deg, #ffd700 0%, #ff9800 50%, #9e9d24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 700;
 }
 
 .credencial-footer {
-  background: #f8f9fa;
+  background: linear-gradient(135deg, rgba(26, 46, 26, 0.6), rgba(15, 31, 15, 0.6));
   padding: 1.5rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: 1px solid rgba(255, 215, 0, 0.2);
 }
 
 .fecha-emision {
-  color: #666;
+  color: #a5d6a7;
   font-size: 0.875rem;
   margin: 0;
 }
@@ -600,33 +628,38 @@ useHead({
 .qr-placeholder {
   width: 60px;
   height: 60px;
-  background: white;
-  border: 2px solid #e9ecef;
+  background: linear-gradient(135deg, rgba(26, 46, 26, 0.8), rgba(15, 31, 15, 0.8));
+  border: 2px solid rgba(255, 215, 0, 0.4);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-  color: #666;
+  color: #ffd700;
 }
 
 .acciones-panel {
-  background: white;
-  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(26, 46, 26, 0.8), rgba(15, 31, 15, 0.8));
+  border-radius: 16px;
   padding: 1.5rem;
-  border: 2px solid #e9ecef;
+  border: 3px solid transparent;
+  border-image: linear-gradient(135deg, #2e7d32, #9e9d24, #ffd700) 1;
   height: fit-content;
   position: sticky;
   top: 2rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 .panel-titulo {
-  color: #038730;
+  background: linear-gradient(135deg, #ffd700 0%, #ff9800 50%, #9e9d24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 1rem;
   padding-bottom: 0.75rem;
-  border-bottom: 3px solid #feea01;
+  border-bottom: 3px solid #ffd700;
 }
 
 .action-button {
@@ -636,73 +669,114 @@ useHead({
   gap: 0.75rem;
   padding: 0.875rem 1rem;
   margin-bottom: 0.75rem;
-  border: 2px solid #e9ecef;
-  border-radius: 8px;
-  background: white;
-  color: #333;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(26, 46, 26, 0.6), rgba(15, 31, 15, 0.6));
+  color: #e0f2f1;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .action-button:hover {
-  transform: translateX(4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateX(8px);
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.3), rgba(158, 157, 36, 0.2));
 }
 
 .action-button i {
   font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.action-button:hover i {
+  transform: scale(1.2);
 }
 
 .action-button.editar:hover {
-  border-color: #038730;
-  background: #f0f9f4;
-  color: #038730;
+  border-color: #ffd700;
+  color: #ffd700;
 }
 
 .action-button.dispositivos:hover {
-  border-color: #0066cc;
-  background: #f0f7ff;
-  color: #0066cc;
+  border-color: #4caf50;
+  color: #4caf50;
 }
 
 .action-button.asistencias:hover {
-  border-color: #feea01;
-  background: #fffef0;
-  color: #038730;
+  border-color: #ff9800;
+  color: #ff9800;
 }
 
 .action-button.desactivar:hover {
-  border-color: #ff9800;
-  background: #fff8f0;
-  color: #ff9800;
+  border-color: #ff5722;
+  color: #ff5722;
 }
 
 .action-button.activar:hover {
   border-color: #4caf50;
-  background: #f0fff0;
   color: #4caf50;
 }
 
 .action-button.eliminar:hover {
   border-color: #f44336;
-  background: #fff0f0;
   color: #f44336;
 }
 
 .action-button.imprimir:hover {
   border-color: #9c27b0;
-  background: #f8f0ff;
   color: #9c27b0;
 }
 
+/* Modal Styles */
 .modal-card-head {
-  background: linear-gradient(135deg, #038730 0%, #026d27 100%);
+  background: linear-gradient(135deg, #1a2e1a 0%, #0f1f0f 100%);
+  border-bottom: 2px solid #ffd700;
 }
 
 .modal-card-title {
-  color: #feea01;
-  font-weight: 700;
+  background: linear-gradient(135deg, #ffd700 0%, #ff9800 50%, #9e9d24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+.modal-card-body {
+  background: linear-gradient(135deg, rgba(26, 46, 26, 0.9), rgba(15, 31, 15, 0.9));
+  color: #e0f2f1;
+}
+
+.modal-card-foot {
+  background: linear-gradient(135deg, rgba(26, 46, 26, 0.8), rgba(15, 31, 15, 0.8));
+  border-top: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.button.is-danger {
+  background: linear-gradient(135deg, #f44336, #d32f2f);
+  color: white;
+  border: none;
+  font-weight: 600;
+}
+
+.button.is-danger:hover {
+  background: linear-gradient(135deg, #d32f2f, #c62828);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4);
+}
+
+.button {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(158, 157, 36, 0.3));
+  border: 2px solid rgba(255, 215, 0, 0.4);
+  color: #ffd700;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(158, 157, 36, 0.4));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
 }
 
 @media print {
@@ -739,6 +813,24 @@ useHead({
   .detalle-cooperativista-page {
     padding: 1rem;
     margin: -1.5rem -1rem;
+  }
+  
+  .credencial-header {
+    height: 150px;
+  }
+  
+  .logo-circle {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+  
+  .cooperativa-nombre {
+    font-size: 1.2rem;
+  }
+  
+  .nombre-completo {
+    font-size: 1.4rem;
   }
 }
 </style>

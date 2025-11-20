@@ -209,9 +209,10 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .dashboard-navbar {
-  background-color: #658C58;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border-bottom: 3px solid #F0E491;
+  background: linear-gradient(135deg, #1a2e1a 0%, #0f1f0f 50%, #1e461e 100%);
+  box-shadow: 0 4px 30px rgba(76, 175, 80, 0.2), 0 0 40px rgba(255, 215, 0, 0.1);
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(135deg, #2e7d32, #9e9d24, #ffd700) 1;
 }
 
 /* Brand */
@@ -224,11 +225,6 @@ onBeforeUnmount(() => {
 
 .brand-item:hover {
   background-color: transparent !important;
-}
-
-.brand-icon {
-  font-size: 2rem;
-  color: white;
 }
 
 .brand-text {
@@ -258,15 +254,15 @@ onBeforeUnmount(() => {
 }
 
 .nav-link:hover {
-  background-color: #F0E491 !important;
-  color: #31694E !important;
-  border-bottom-color: #BBC863;
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.3), rgba(158, 157, 36, 0.2)) !important;
+  color: #ffd700 !important;
+  border-bottom-color: #ffd700;
 }
 
 .nav-link.router-link-active {
-  background-color: #F0E491 !important;
-  color: #31694E !important;
-  border-bottom-color: #31694E;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(158, 157, 36, 0.3)) !important;
+  color: #ffd700 !important;
+  border-bottom-color: #ffd700;
   font-weight: 600;
 }
 
@@ -276,7 +272,7 @@ onBeforeUnmount(() => {
 
 .nav-link:hover .icon,
 .nav-link.router-link-active .icon {
-  color: #31694E;
+  color: #ffd700;
 }
 
 /* User Link */
@@ -286,8 +282,8 @@ onBeforeUnmount(() => {
 }
 
 .user-link:hover {
-  background-color: #F0E491 !important;
-  color: #31694E !important;
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.3), rgba(158, 157, 36, 0.2)) !important;
+  color: #ffd700 !important;
 }
 
 /* Dropdown */
