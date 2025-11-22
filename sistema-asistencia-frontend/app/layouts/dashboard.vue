@@ -27,7 +27,7 @@ definePageMeta({
 .dashboard-content {
   flex: 1;
   padding: 2rem 1rem;
-  background: white;
+  background: #0d1d0a;
 }
 
 @media screen and (min-width: 769px) {
