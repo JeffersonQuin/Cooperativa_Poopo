@@ -4,11 +4,10 @@ from database import engine, Base
 from routers import cooperativistas
 from routers import attendance
 from routers import devices
-from routers import ubicaciones
 from routers import users
 from routers import config
 from routers import auth
-
+from routers import attendance_period
 app = FastAPI(
     title="Sistema de Asistencia - Cooperativa",
     description="API para gestión de asistencia de cooperativistas",
@@ -43,10 +42,10 @@ def health_check():
 app.include_router(users.router, prefix="/api", tags=["users"])
 app.include_router(cooperativistas.router, prefix="/api", tags=["cooperativistas"])
 app.include_router(devices.router, prefix="/api", tags=["devices"])
-app.include_router(ubicaciones.router, prefix="/api", tags=["ubicaciones"])
 app.include_router(attendance.router, prefix="/api", tags=["attendance"])
 app.include_router(config.router, prefix="/api", tags=["config"])
 app.include_router(auth.router, prefix="/api", tags=["auth"])
+app.include_router(attendance_period.router, prefix="/api", tags=["attendance-periods"])
 
 if __name__ == "__main__":
     import uvicorn

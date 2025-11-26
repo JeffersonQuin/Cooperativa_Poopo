@@ -1,5 +1,5 @@
 from database import engine, Base, SessionLocal
-from models import User, Ubicacion, Config, Cooperativista
+from models import User, Config, Cooperativista
 from passlib.context import CryptContext
 import pandas as pd
 from datetime import datetime
@@ -156,20 +156,6 @@ def init_db():
             )
             db.add(admin_user)
             print("Usuario admin creado (username: admin, password: admin123)")
-        
-        # Verificar si ya existe la ubicación por defecto
-        existing_ubicacion = db.query(Ubicacion).first()
-        if not existing_ubicacion:
-            print("Creando ubicación por defecto...")
-            ubicacion_default = Ubicacion(
-                nombre="Cooperativa - Ubicación Principal",
-                latitud=-16.5000,
-                longitud=-68.1500,
-                radio_metros=50,
-                is_active=True
-            )
-            db.add(ubicacion_default)
-            print("Ubicación por defecto creada")
         
         # Verificar configuraciones
         existing_config = db.query(Config).first()

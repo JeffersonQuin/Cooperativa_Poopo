@@ -38,15 +38,6 @@ export const useCooperativistasStore = defineStore('cooperativistas', {
       return Array.from(cuadrillasSet).sort()
     },
 
-    secciones: (state) => {
-      const seccionesSet = new Set(
-        state.cooperativistas
-          .filter(c => c.seccion)
-          .map(c => c.seccion)
-      )
-      return Array.from(seccionesSet).sort()
-    },
-
     ocupaciones: (state) => {
       const ocupacionesSet = new Set(
         state.cooperativistas
@@ -136,25 +127,47 @@ export const useCooperativistasStore = defineStore('cooperativistas', {
     async cargarCooperativistas() {
       this.loading = true
       this.error = null
+      this.cooperativistas = [] // Limpiar array antes de cargar
       
       try {
         const authStore = useAuthStore()
         const config = useRuntimeConfig()
         
-        const response = await $fetch(`http://localhost:8000/api/cooperativistas/`, {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${authStore.token}`
-          },
-          params: {
-            limit: 500
-          }
-        })
+        let offset = 0
+        const limit = 500
+        let hasMore = true
+        let totalCargados = 0
         
-        this.cooperativistas = response
+        console.log('🔄 Iniciando carga de cooperativistas...')
+        
+        while (hasMore) {
+          const response = await $fetch(`http://localhost:8000/api/cooperativistas/`, {
+            method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${authStore.token}`
+            },
+            params: {
+              limit: limit,
+              offset: offset
+            }
+          })
+          
+          // Agregar los nuevos registros al array
+          this.cooperativistas.push(...response)
+          totalCargados += response.length
+          
+          console.log(`📦 Cargados ${response.length} registros (Total acumulado: ${totalCargados})`)
+          
+          // Si recibimos menos registros que el límite, ya no hay más
+          hasMore = response.length === limit
+          offset += limit
+        }
+        
+        console.log(`✅ Carga completa: ${this.cooperativistas.length} cooperativistas`)
+        
       } catch (error) {
         this.error = error.message || 'Error al cargar cooperativistas'
-        console.error('Error cargando cooperativistas:', error)
+        console.error('❌ Error cargando cooperativistas:', error)
         throw error
       } finally {
         this.loading = false

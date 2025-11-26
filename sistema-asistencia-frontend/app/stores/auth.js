@@ -5,7 +5,8 @@ export const useAuthStore = defineStore('auth', {
   state: () => ({
     token: null,
     user: null,
-    isAuthenticated: false
+    isAuthenticated: false,
+    apiUrl: 'http://localhost:8000' 
   }),
   
   actions: {

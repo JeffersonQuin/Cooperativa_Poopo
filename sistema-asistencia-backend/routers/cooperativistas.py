@@ -19,8 +19,8 @@ def generar_codigo_unico(db: Session):
 
 @router.get("/", response_model=List[CooperativistaResponse])
 def get_cooperativistas(
-    skip: int = Query(0, ge=0),
-    limit: int = Query(100, ge=1, le=500),
+    skip: int = Query(0, alias="offset", ge=0),  # ← CAMBIO 1: Agregar alias="offset"
+    limit: int = Query(100, ge=1, le=1000),      # ← CAMBIO 2: Aumentar máximo a 1000
     is_active: Optional[bool] = None,
     cuadrilla: Optional[str] = None,
     seccion: Optional[int] = None,

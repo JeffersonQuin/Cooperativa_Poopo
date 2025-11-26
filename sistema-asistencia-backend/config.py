@@ -28,6 +28,3 @@ if len(SECRET_KEY) < 32:
     raise ValueError(
         "❌ ERROR: SECRET_KEY debe tener al menos 32 caracteres para ser seguro"
     )
-
-print("✅ Configuración cargada correctamente")
-print(f"✅ JWT expirará en {ACCESS_TOKEN_EXPIRE_HOURS} horas")

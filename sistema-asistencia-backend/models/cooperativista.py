@@ -26,6 +26,8 @@ class Cooperativista(Base):
     # IDENTIFICACIÓN
     ci = Column(String(20), index=True)
     ci_expedido = Column(String(5))
+    ci_foto_url = Column(String(255))  # URL de la foto del carnet
+    documento_abc_url = Column(String(255))  # URL del documento ABC
     
     # FECHAS
     fecha_ingreso = Column(Date)
@@ -33,8 +35,12 @@ class Cooperativista(Base):
 
     # DATOS LABORALES
     codigo_asegurado = Column(String(50))
+    cua = Column(String(20))  # Código Único de Asegurado
     ocupacion = Column(String(100))
     estado_asegurado = Column(String(20))
+    
+    # CONTACTO
+    email = Column(String(100))
     
     # ESTADO
     is_active = Column(Boolean, default=True, index=True)
