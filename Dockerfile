@@ -5,14 +5,14 @@ FROM python:3.11-slim
 WORKDIR /sistema-asistencia-backend
 
 # Copiar requirements
-COPY requirements.txt .
+COPY /sistema-asistencia-backend/requirements.txt .
 
 # Instalar dependencias
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copiar solo el código del backend
 COPY *.py .
-COPY database.py .
+COPY /sistema-asistencia-backend/database.py .
 
 # Exponer puerto
 EXPOSE 8000
