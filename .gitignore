@@ -63,3 +63,7 @@ coverage.xml
 *.cover
 .hypothesis/
 .pytest_cache/
+
+lista_cooperativistas_agosto.xlsx
+init_db.py
+limpieza.py
