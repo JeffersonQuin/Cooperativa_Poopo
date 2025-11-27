@@ -6,9 +6,3 @@ dockerfilePath = "Dockerfile"
 startCommand = "uvicorn main:app --host 0.0.0.0 --port $PORT"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
-
-PORT=8000
-DATABASE_URL=sqlite:///./cooperativa.db
-SECRET_KEY=tu-clave-secreta-aqui-muy-larga-y-segura
-ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=30
