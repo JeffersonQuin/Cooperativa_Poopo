@@ -7,10 +7,6 @@ import re
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-def generar_codigo_unico(nro):
-    """Generar código único basado en el número"""
-    return f"COOP{nro:06d}"
-
 def limpiar_ci(ci_str):
     """Limpiar y extraer CI"""
     if pd.isna(ci_str) or ci_str == "":
@@ -73,21 +69,12 @@ def cargar_cooperativistas_excel():
                         print(f"Fila {index + 2}: NRO. faltante, omitiendo")
                         cooperativistas_error += 1
                         continue
-                    
-                    # Verificar si ya existe el cooperativista
-                    codigo_unico = generar_codigo_unico(nro)
-                    existing = db.query(Cooperativista).filter(
-                        Cooperativista.codigo_unico == codigo_unico
-                    ).first()
-                    if existing:
-                        continue
-                    
+                
                     # Procesar CI
                     ci, ci_expedido = limpiar_ci(row.get('CI'))
                     
                     # Crear cooperativista
                     cooperativista = Cooperativista(
-                        codigo_unico=codigo_unico,
                         nro=nro,
                         seccion=str(row.get('SECCION')) if pd.notna(row.get('SECCION')) else None,
                         cuadrilla=str(row.get('CUADRILLA', '')).strip() if pd.notna(row.get('CUADRILLA')) else None,
