@@ -76,7 +76,7 @@ async def upload_documento_abc(
         result = uploader.upload(
             contents,
             folder="cooperativa/documentos_abc",
-            public_id=f"doc_abc_{cooperativista_id}",
+            public_id=f"doc_abc_{cooperativista_id}.pdf",
             overwrite=True,
             resource_type=resource_type
         )
