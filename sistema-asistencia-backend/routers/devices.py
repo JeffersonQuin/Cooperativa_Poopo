@@ -113,7 +113,6 @@ def generate_batch_api_keys(
         if existing_device and not batch.regenerate:
             skipped.append({
                 "cooperativista_id": coop.id,
-                "codigo_unico": coop.codigo_unico,
                 "nombre": f"{coop.nombres} {coop.apellido_paterno}",
                 "reason": "Ya tiene dispositivo registrado"
             })
@@ -144,7 +143,6 @@ def generate_batch_api_keys(
         created_devices.append({
             "device_id": None,  # Se asignará después del commit
             "cooperativista_id": coop.id,
-            "codigo_unico": coop.codigo_unico,
             "nombre_completo": f"{coop.nombres} {coop.apellido_paterno} {coop.apellido_materno or ''}".strip(),
             "cuadrilla": coop.cuadrilla,
             "api_key": api_key
@@ -244,7 +242,6 @@ def export_cuadrilla_devices(
     for device in devices:
         coop = device.cooperativista
         export_data.append({
-            "codigo_unico": coop.codigo_unico,
             "nombre_completo": f"{coop.nombres} {coop.apellido_paterno} {coop.apellido_materno or ''}".strip(),
             "ci": coop.ci or "SIN CI",
             "cuadrilla": coop.cuadrilla,

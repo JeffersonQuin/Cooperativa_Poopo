@@ -51,7 +51,6 @@ class DeviceBatchResponse(BaseModel):
     skipped: List[dict]
 
 class DeviceExportData(BaseModel):
-    codigo_unico: str
     nombre_completo: str
     ci: str
     cuadrilla: str
