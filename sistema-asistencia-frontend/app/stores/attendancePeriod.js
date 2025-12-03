@@ -35,6 +35,11 @@ export const useAttendancePeriodStore = defineStore('attendancePeriod', {
       return 'invalid'
     },
     
+    shouldBeOpen: (state) => (period) => {
+      const status = state.getPeriodStatus(period)
+      return status === 'en_curso' && !period.is_open
+    },
+    
     isOpenOutOfTime: (state) => (period) => {
       const status = state.getPeriodStatus(period)
       return period.is_open && (status === 'programado' || status === 'finalizado')
@@ -63,6 +68,16 @@ export const useAttendancePeriodStore = defineStore('attendancePeriod', {
         if (!response.ok) throw new Error('Error al obtener períodos')
         
         this.periods = await response.json()
+        
+        for (const period of this.periods) {
+          if (this.shouldBeOpen(period)) {
+            await this.openPeriod(period.id)
+          }
+          if (this.isOpenOutOfTime(period) && this.getPeriodStatus(period) === 'finalizado') {
+            await this.closePeriod(period.id)
+          }
+        }
+        
         return this.periods
       } catch (error) {
         this.error = error.message
@@ -132,6 +147,12 @@ export const useAttendancePeriodStore = defineStore('attendancePeriod', {
         if (!response.ok) throw new Error('Error al obtener período')
         
         this.selectedPeriod = await response.json()
+        
+        if (this.shouldBeOpen(this.selectedPeriod)) {
+          await this.openPeriod(periodId)
+          this.selectedPeriod = await response.json()
+        }
+        
         return this.selectedPeriod
       } catch (error) {
         this.error = error.message
