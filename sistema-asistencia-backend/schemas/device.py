@@ -1,4 +1,4 @@
-# schemas/device.py (NUEVOS SCHEMAS)
+# schemas/device.py (ACTUALIZADO)
 from pydantic import BaseModel, Field
 from typing import Optional, List
 from datetime import datetime
@@ -35,7 +35,7 @@ class DeviceBatchGenerate(BaseModel):
     cuadrilla: Optional[str] = None
     seccion: Optional[str] = None
     cooperativista_ids: Optional[List[int]] = None
-    regenerate: bool = False  # Si True, revoca existentes y genera nuevos
+    regenerate: bool = False
 
 class DeviceActivate(BaseModel):
     api_key: str
@@ -44,11 +44,12 @@ class DeviceActivate(BaseModel):
     device_model: Optional[str] = None
     device_os: Optional[str] = None
 
+# ACTUALIZADO: Para coincidir con el endpoint
 class DeviceBatchResponse(BaseModel):
-    total_created: int
-    total_skipped: int
-    devices: List[dict]
-    skipped: List[dict]
+    total: int              # Total de cooperativistas procesados
+    created: int            # Total de dispositivos creados
+    skipped: int            # Total de cooperativistas omitidos (número)
+    devices: List[dict]     # Lista de dispositivos creados con sus API keys
 
 class DeviceExportData(BaseModel):
     nombre_completo: str
